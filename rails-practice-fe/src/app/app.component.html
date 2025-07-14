@@ -1,4 +1,10 @@
 <main>
   <h1>Books</h1>
-  <div>Books will be displayed here :)</div>
+  @for (book of books; track book.id) {
+  <div>
+    <h2>{{ book.title }}</h2>
+    <p>by {{ book.author }}</p>
+    <p>published in {{ book.year }}</p>
+  </div>
+  }
 </main>
