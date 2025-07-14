@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Book } from './book.model';
+import { BookService } from './book.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,18 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'rails-practice-fe';
+  books: Book[] = [];
+  constructor(private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.bookService.getBooks().subscribe({
+      next: (books) => {
+        this.books = books;
+        console.log(this.books);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
 }

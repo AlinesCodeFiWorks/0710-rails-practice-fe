@@ -1,3 +1,5 @@
 export interface Book {
-  // TODO Develop model!
+  title: string;
+  author: string;
+  year: number;
 }
